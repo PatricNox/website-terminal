@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * This is the core file for the project, for now.
+ * Using mixed commands, dir and ls, but targeted to linux users.
+ * This too is something to be changed, see everything as WIP and attempts
+ *  before any cleanup
+ * 
+ * @author PatricNox <eronoxsmail@gmail.com>
+ */
+
     session_start();
     $root = getcwd();
     $exec = NULL;
-    if ($_POST['query'] == "dev")
-        unset($_SESSION['currentdir']);
 
     if (isset($_POST['query']))
     {
@@ -15,11 +22,14 @@
             $exec = shell_exec($_POST['query']);
         }
 
-        else
+        else // This is if a new-sessioned user haven't moved path
             $exec = shell_exec($_POST['query']);
 
         chdir($root);
     }
 
+    if (strlen($exec) < 2)
+        $exec = shell_exec('ls');
+
     ## Generate markup & style
-    include_once('./markup.php');
+    include_once('./layout/markup.php');

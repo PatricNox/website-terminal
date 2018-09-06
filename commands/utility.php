@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * The utility file contains extra code for
+ * specific commands to work as intended.
+ * 
+ * @author PatricNox <eronoxsmail@gmail.com>
+ */
+
 $query = htmlspecialchars($_POST['query']);
 $query = strip_tags($query); // Eliminate PHP/HTML tags
 
