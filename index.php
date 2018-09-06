@@ -28,8 +28,5 @@
         chdir($root);
     }
 
-    if (strlen($exec) < 2)
-        $exec = shell_exec('ls');
-
     ## Generate markup & style
     include_once('./layout/markup.php');
