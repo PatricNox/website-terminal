@@ -22,8 +22,8 @@
         if (isset($_SESSION['currentdir']))
             chdir($_SESSION['currentdir']);
 
-        terminal_input($query);
-        chdir($root);
+        // Execute command, log it and move to root
+        terminal_input($_POST['query'], $root);
     }
 
     ## Generate markup & style

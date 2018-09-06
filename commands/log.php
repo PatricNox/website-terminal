@@ -15,22 +15,26 @@
 
     file_put_contents('logs.txt', $path.'> '.$query."\n", 8);
     
-    function terminal_input(String $inputquery): void
+    function terminal_input(String $inputquery, String $rootPath): void
     {
          /**
          * Runs the query through shell_exec 
          * and saves the output into the logs.
-         * @param string $inputquery
-         *
-         * @return void
+         * 
+         * @param String $inputquery
+         * @param String $rootPath
+         * @return Void
          */
 
          // Dont run empty inputs
          if (strlen($inputquery ) < 2)
             return;
 
-        if ($exec = shell_exec($inputquery))
-            file_put_contents('logs.txt', $exec."\n", 8);
+        // Execute command
+        $exec = shell_exec($inputquery);
 
+        // Go back to root & save output
+        chdir($rootPath);
+        file_put_contents('logs.txt', $exec."\n", 8);
         return;
     }
