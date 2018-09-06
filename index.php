@@ -13,6 +13,9 @@
     $root = getcwd();
     $exec = NULL;
 
+    if (isset($_POST['query']) && $_POST['query'] == 'dev')
+        unset($_SESSION['currentdir']);
+
     if (isset($_POST['query']))
     {
         include_once('commands/utility.php');
@@ -29,4 +32,4 @@
     }
 
     ## Generate markup & style
-    include_once('./layout/markup.php');
+    include('./layout/markup.php');
