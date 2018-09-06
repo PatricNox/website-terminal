@@ -31,7 +31,7 @@
             return;
 
         // Execute command
-        $exec = shell_exec($inputquery);
+        $exec = shell_exec($inputquery.' 2>&1');
 
         // Go back to root & save output
         chdir($rootPath);
