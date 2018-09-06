@@ -13,7 +13,8 @@
                 <?="<pre>".$exec."</pre>";?>
             <?php endif; ?>
             <form action="index.php" method="post">
-               <?= $nav?> <tag>></tag> <input type="text" name="query" id="" placeholder="_">
+               <?= ($_SESSION['currentdir']) ? $_SESSION['currentdir'] : $root ?>
+               <tag>></tag> <input type="text" name="query" id="" placeholder="_">
              </form>
         </div>    
     </body>

