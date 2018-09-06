@@ -1,0 +1,17 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #000;
+}
+
+/* Console mimik */
+#console {
+    border: 1px SOLID #004040;
+    background-color: #00022b;
+    color: #00ff40;
+    height: 100%;
+}
+
+/* Hide input */
+#console input {background: none; border: none; color: #00ff40;}
+input:focus {border: none; }
