@@ -10,6 +10,9 @@
 $query = htmlspecialchars($_POST['query']);
 $query = strip_tags($query); // Eliminate PHP/HTML tags
 
+## Logging system
+include 'commands/log.php';
+
 ## Navigation system (cd)
 if (strpos($query, "cd") !== false)
 {

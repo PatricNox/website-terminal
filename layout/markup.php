@@ -9,8 +9,8 @@
     </head>
     <body>
         <div id="console">
-            <?php if ($exec): ?>
-                <?="<pre>".$exec."</pre>";?>
+            <?php if ($output): ?>
+                <?="<pre>".$output."</pre>";?>
             <?php endif; ?>
             <form action="index.php" method="post">
                <?= (isset($_SESSION['currentdir'])) ? $_SESSION['currentdir'] : $root ?>

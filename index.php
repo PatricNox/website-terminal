@@ -20,16 +20,12 @@
     {
         include_once('commands/utility.php');
         if (isset($_SESSION['currentdir']))
-        {
             chdir($_SESSION['currentdir']);
-            $exec = shell_exec($_POST['query']);
-        }
 
-        else // This is if a new-sessioned user haven't moved path
-            $exec = shell_exec($_POST['query']);
-
+        terminal_input($query);
         chdir($root);
     }
 
     ## Generate markup & style
+    $output = file_get_contents('logs.txt');
     include('./layout/markup.php');
