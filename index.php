@@ -3,7 +3,8 @@
     session_start();
     $root = getcwd();
     $exec = NULL;
-    echo $root;
+    if ($_POST['query'] == "dev")
+        unset($_SESSION['currentdir']);
 
     if (isset($_POST['query']))
     {
