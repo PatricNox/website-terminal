@@ -13,6 +13,12 @@
     else
         $path = $root;
 
+    // Clear log if it's overwhelmed
+    $log = file_get_contents('./logs.txt');
+    if (strlen($log) > 350)
+        terminal_clear();
+
+    // Add current command execute into history log
     file_put_contents('logs.txt', $path.'> '.$query."\n", 8);
     
     function terminal_input(String $inputquery, String $rootPath): void
