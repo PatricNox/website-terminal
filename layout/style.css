@@ -14,4 +14,4 @@ body {
 
 /* Hide input */
 #console input {background: none; border: none; color: #00ff40;}
-input:focus {border: none; }
+input:focus {border: none; outline: none;}

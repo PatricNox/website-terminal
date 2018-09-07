@@ -14,8 +14,8 @@
             <?php endif; ?>
             <form action="index.php" method="post">
                <?= (isset($_SESSION['currentdir'])) ? $_SESSION['currentdir'] : $root ?>
-               <tag>></tag> <input type="text" name="query" id="" placeholder="_">
+               <tag>></tag> <input type="text" name="query" id="" autofocus placeholder="_">
              </form>
-        </div>    
+        </div>
     </body>
 </html>
