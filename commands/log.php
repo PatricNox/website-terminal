@@ -38,3 +38,11 @@
         file_put_contents('logs.txt', $exec."\n", 8);
         return;
     }
+
+    function terminal_clear(): bool
+    {
+        if (unlink('logs.txt'))
+            if (file_put_contents('logs.txt',"\n", 8))
+                return true;
+        return false;
+    }

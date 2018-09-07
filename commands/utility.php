@@ -29,7 +29,4 @@ if (strpos($query, "cd") !== false)
 
 ## Clear windows command
 if (strpos($query, "cls") !== false)
-{
-    unlink('logs.txt');
-    file_put_contents('logs.txt',"\n", 8);
-}
+    terminal_clear();
