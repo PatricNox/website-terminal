@@ -13,6 +13,16 @@ $query = strip_tags($query); // Eliminate PHP/HTML tags
 ## Logging system
 include 'commands/log.php';
 
+## Session System
+if (isset($_SESSION['LAST_ACTIVITY']) && ((time() - $_SESSION['LAST_ACTIVITY']) > 480)) 
+{   // Reset session if inactive
+    // request 8 minUtes ago
+    session_destroy();
+    session_unset();
+    header("Refresh:0"); // Refresh page to get correct listing
+}
+$_SESSION['LAST_ACTIVITY'] = time(); // Update last activity
+
 ## Navigation system (cd)
 if (strpos($query, "cd") !== false)
 {
