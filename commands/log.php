@@ -23,17 +23,17 @@
     
     function terminal_input(String $inputquery, String $rootPath): void
     {
-         /**
-         * Runs the query through shell_exec 
-         * and saves the output into the logs.
-         * 
-         * @param String $inputquery
-         * @param String $rootPath
-         * @return Void
-         */
+        /**
+        * Runs the query through shell_exec
+        * and saves the output into the logs.
+        *
+        * @param String $inputquery
+        * @param String $rootPath
+        * @return Void
+        */
 
-         // Dont run empty inputs
-         if (strlen($inputquery ) < 2)
+        // Dont run empty inputs
+        if (strlen($inputquery ) < 2)
             return;
 
         add_to_history($inputquery);
@@ -44,6 +44,11 @@
         // Go back to root & save output
         chdir($rootPath);
         file_put_contents('logs.txt', $exec."\n", 8);
+
+        // Clear log when `clear` is called
+        if ($inputquery === 'clear')
+            terminal_clear();
+
         return;
     }
 
