@@ -38,5 +38,5 @@ if (strpos($query, "cd") !== false)
 }
 
 ## Clear windows command
-if (strpos($query, "cls") !== false)
+if ((strpos($query, "cls") !== false) || (strpos($query, "clear") !== false))
     terminal_clear();
