@@ -27,5 +27,5 @@
     }
 
     ## Generate markup & style
-    $output = file_get_contents('logs.txt');
+    $output = fopen('logs.txt', 'w');
     include('./layout/markup.php');
