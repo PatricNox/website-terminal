@@ -54,16 +54,15 @@
 
     function add_to_history(String $inputquery): void
     {
-        if (!$_SESSION['history']) {
-            // Make it array if it does not exists.
+        // Make it array if it does not exists.
+        if (!$_SESSION['history'])
             $_SESSION['history'] = [];
-        } elseif (is_array($_SESSION['history']) && end($_SESSION['history']) === $inputquery) {
-            // Don't store the same query twice after each other.
+
+        // Don't store the same query twice after each other.
+        elseif (is_array($_SESSION['history']) && end($_SESSION['history']) === $inputquery)
             return;
-        }
 
         $_SESSION['history'][] = $inputquery;
-        return;
     }
 
     function terminal_clear(): bool
