@@ -36,8 +36,10 @@
          if (strlen($inputquery ) < 2)
             return;
 
-        // Execute command
-        $exec = shell_exec($inputquery.' 2>&1');
+        if (!ALLOW_SUDO && strpos($inputquery, 'sudo') !== false)
+            $exec = 'Error, sudo is not allowed!'; // Don't allow sudo
+        else
+            $exec = shell_exec($inputquery.' 2>&1'); // Execute command
 
         // Go back to root & save output
         chdir($rootPath);
