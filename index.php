@@ -8,6 +8,7 @@
  * 
  * @author PatricNox <eronoxsmail@gmail.com>
  */
+const ALLOW_SUDO = true;
 
     session_start();
     $root = getcwd();
