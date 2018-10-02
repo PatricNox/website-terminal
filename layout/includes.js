@@ -1,7 +1,7 @@
 /**
  * Following Javascript is for functionalities and
  * any eventual animation for the console.
- * 
+ *
  * @author PatricNox <eronoxsmail@gmail.com>
  */
 
@@ -37,9 +37,8 @@
             }
         }
 
-        if (value !== undefined) {
+        if (value !== undefined)
             input.setAttribute('value', value);
-        }
     });
 
     function setNewHistoryKey(newKey) {
@@ -49,5 +48,13 @@
         }
         return false;
     }
+
+    // Focus input field on document click.
+    // Don't focus when selection is not empty.
+    document.addEventListener('click', function (e) {
+        if (window.getSelection().toString() === '') {
+            input.focus();
+        }
+    }, false);
 
  /** End of Input Field **/
