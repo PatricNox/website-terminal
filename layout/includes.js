@@ -8,7 +8,10 @@
  /** Input Field  **/
 
     // Expand input width as user types
+    const input = document.querySelector('#cmd');
     let $i = 2;
+    let historyKey = 0;
+    let history = JSON.parse(document.querySelector('#history').getAttribute('value'));
     document.addEventListener('input', function (e) {
         $i++;
         event.target.style.width = $i + '%';
@@ -18,10 +21,31 @@
     // This a workaround for the eventual massive 
     // and endless potentional width it can have after
     // a longer usage of the field.
-    document.addEventListener('keyDown', function (e) {
-        const input = document.querySelector('#cmd');
+    document.addEventListener('keydown', function (e) {
         input.style.width = "auto";
         $i = 2;
-    }, false)
+    }, false);
+
+    input.addEventListener('keydown', function (e) {
+        let value = '';
+        if (e.keyCode === 38) { // key: UP (arrow)
+            value = history[historyKey];
+            setNewHistoryKey(historyKey + 1);
+        } else if (e.keyCode === 40) { // key: DOWN (arrow)
+            if (setNewHistoryKey(historyKey - 1)) {
+                value = history[historyKey];
+            }
+        }
+
+        input.setAttribute('value', value);
+    });
+
+    function setNewHistoryKey(newKey) {
+        if (history[newKey] !== undefined) {
+            historyKey = newKey;
+            return true;
+        }
+        return false;
+    }
 
  /** End of Input Field **/

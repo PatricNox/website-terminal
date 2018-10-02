@@ -10,11 +10,17 @@
     <body>
         <div id="console">
             <?php if ($output): ?>
-                <?="<pre>".$output."</pre>";?>
+                <?="<pre>$output</pre>";?>
             <?php endif; ?>
             <form action="index.php" method="post">
-               <?= (isset($_SESSION['currentdir'])) ? $_SESSION['currentdir'] : $root ?>
-               <span>></span> <input type="text" name="query" id="cmd" autofocus placeholder="_" contenteditable="true">
+                <?php
+                $history = array_reverse($_SESSION['history'] ?? []);
+                ?>
+                <input type="hidden" value="<?= htmlspecialchars(json_encode($history, JSON_FORCE_OBJECT)) ?>"
+                       id="history">
+               <?= $_SESSION['currentdir'] ?? $root ?>
+               <span>></span><input type="text" name="query" id="cmd" autofocus placeholder="_" contenteditable="true"
+                                    autocomplete="off" >
             </form>
         </div>
         <script src="layout/includes.js"></script>
