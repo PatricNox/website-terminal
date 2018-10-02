@@ -36,12 +36,28 @@
          if (strlen($inputquery ) < 2)
             return;
 
+        add_to_history($inputquery);
+
         // Execute command
         $exec = shell_exec($inputquery.' 2>&1');
 
         // Go back to root & save output
         chdir($rootPath);
         file_put_contents('logs.txt', $exec."\n", 8);
+        return;
+    }
+
+    function add_to_history(String $inputquery): void
+    {
+        if (!$_SESSION['history']) {
+            // Make it array if it does not exists.
+            $_SESSION['history'] = [];
+        } elseif (is_array($_SESSION['history']) && end($_SESSION['history']) === $inputquery) {
+            // Don't store the same query twice after each other.
+            return;
+        }
+
+        $_SESSION['history'][] = $inputquery;
         return;
     }
 
