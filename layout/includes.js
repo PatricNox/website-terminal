@@ -21,7 +21,7 @@
     // This a workaround for the eventual massive 
     // and endless potentional width it can have after
     // a longer usage of the field.
-    document.addEventListener('keydown', function (e) {
+    document.addEventListener('keyDown', function (e) {
         input.style.width = "auto";
         $i = 2;
     }, false);
@@ -37,7 +37,9 @@
             }
         }
 
-        input.setAttribute('value', value);
+        if (value !== undefined) {
+            input.setAttribute('value', value);
+        }
     });
 
     function setNewHistoryKey(newKey) {
