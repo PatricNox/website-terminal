@@ -6,7 +6,7 @@
  * This too is something to be changed, see everything as WIP and attempts
  *  before any cleanup
  * 
- * @author PatricNox <eronoxsmail@gmail.com>
+ * @author PatricNox <PatricNox@gmail.com>
  */
 
     session_start();
@@ -27,5 +27,5 @@
     }
 
     ## Generate markup & style
-    $output = file_get_contents('logs.txt');
-    include('./layout/markup.php');
+    $output = file_get_contents(__DIR__.'\logs.txt');
+    include(__DIR__.'/layout/markup.php');
