@@ -55,7 +55,7 @@
     function add_to_history(String $inputquery): void
     {
         // Make it array if it does not exists.
-        if (!$_SESSION['history'])
+        if (!isset($_SESSION['history']))
             $_SESSION['history'] = [];
 
         // Don't store the same query twice after each other.
