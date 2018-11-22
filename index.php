@@ -1,11 +1,9 @@
 <?php
 
 /**
- * This is the core file for the project, for now.
- * Using mixed commands, dir and ls, but targeted to linux users.
- * This too is something to be changed, see everything as WIP and attempts
- *  before any cleanup
- * 
+ * This is the core file, it takes care of initializers and is 
+ * the overall project handler. 
+ *
  * @author PatricNox <hello@PatricNox.info>
  */
 
