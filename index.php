@@ -6,7 +6,7 @@
  * This too is something to be changed, see everything as WIP and attempts
  *  before any cleanup
  * 
- * @author PatricNox <PatricNox@gmail.com>
+ * @author PatricNox <hello@PatricNox.info>
  */
 
     session_start();

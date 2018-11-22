@@ -4,7 +4,7 @@
  * The utility file contains extra code for
  * specific commands to work as intended.
  * 
- * @author PatricNox <eronoxsmail@gmail.com>
+ * @author PatricNox <hello@PatricNox.info>
  */
 
 $query = htmlspecialchars($_POST['query']);

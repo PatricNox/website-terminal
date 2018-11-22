@@ -4,7 +4,7 @@
      * This file handles the logging of commands and outputs.
      * Stored in a txt file behaved to be the historical.
      * 
-     * @author PatricNox <eronoxsmail@gmail.com>
+     * @author PatricNox <hello@PatricNox.info>
      */
 
     // What path as appendix to use

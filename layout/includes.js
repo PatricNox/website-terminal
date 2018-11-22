@@ -2,7 +2,7 @@
  * Following Javascript is for functionalities and
  * any eventual animation for the console.
  *
- * @author PatricNox <eronoxsmail@gmail.com>
+ * @author PatricNox <hello@PatricNox.info>
  */
 
  /** Input Field  **/
