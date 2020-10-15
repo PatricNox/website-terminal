@@ -35,6 +35,8 @@
         // Dont run empty inputs
         if (strlen($inputquery ) < 2)
             return;
+		if (substr($inputquery, 0, 3) === "cd ")
+			return;
 
         add_to_history($inputquery);
 
