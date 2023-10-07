@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  nginx:
+    build:
+      context: docker/nginx
+      dockerfile: Dockerfile
+    container_name: website_terminal_nginx
+    volumes:
+      - ./code:/var/www/html
+    ports:
+      - '80:80'
+
+  php:
+    build:
+      context: docker/php
+      dockerfile: Dockerfile
+    container_name: website_terminal_php
+    volumes:
+      - ./code:/var/www/html:rw

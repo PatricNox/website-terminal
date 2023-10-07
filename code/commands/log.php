@@ -7,6 +7,7 @@
      * @author PatricNox <hello@PatricNox.info>
      */
 
+
     // What path as appendix to use
     if (isset($_SESSION['currentdir']))
         $path = $_SESSION['currentdir'];
@@ -14,12 +15,12 @@
         $path = $root;
 
     // Clear log if it's overwhelmed
-    $log = file_get_contents('./logs.txt');
+    $log = file_get_contents(__DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR.'logs.txt');
     if (strlen($log) > 350)
-        terminal_clear();
+        terminal_clear(__DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR.'logs.txt');
 
     // Add current command execute into history log
-    file_put_contents('logs.txt', $path.'> '.$query."\n", 8);
+    file_put_contents(__DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR.'logs.txt', $path.'> '.$query."\n", 8);
     
     function terminal_input(String $inputquery, String $rootPath): void
     {
@@ -45,11 +46,11 @@
 
         // Go back to root & save output
         chdir($rootPath);
-        file_put_contents('logs.txt', $exec."\n", 8);
+        file_put_contents(__DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR.'logs.txt', $exec."\n", 8);
 
         // Clear log when `clear` is called
         if ($inputquery === 'clear')
-            terminal_clear();
+            terminal_clear(__DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR.'logs.txt');
 
         return;
     }
@@ -67,10 +68,10 @@
         $_SESSION['history'][] = $inputquery;
     }
 
-    function terminal_clear(): bool
+    function terminal_clear($logs_path): bool
     {
-        if (unlink('logs.txt'))
-            if (file_put_contents('logs.txt',"\n", 8))
+        if (unlink($logs_path))
+            if (file_put_contents($logs_path,"\n", 8))
                 return true;
         return false;
     }

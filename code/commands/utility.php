@@ -39,4 +39,4 @@ if (strpos($query, "cd") !== false)
 
 ## Clear windows command
 if ((strpos($query, "cls") !== false) || (strpos($query, "clear") !== false))
-    terminal_clear();
+    terminal_clear(__DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR.'logs.txt');
