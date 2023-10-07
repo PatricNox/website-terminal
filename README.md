@@ -14,10 +14,35 @@ This Web-built CMD has the compability for any command line interface like softw
 * php
 * .. all of them!
 
-## Usage
-You will need a webserver for this.
+## Usage with Docker
 
-Simply download and extract the project files inside your webserver's www/htdocs directory and run like a normal website!
+The modern way is using [Docker](https://docs.docker.com/engine/install/). You'll only need Docker and Docker Compose installed on your system.
+
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:PatricNox/website-terminal.git
+   # OR
+   git clone https://github.com/PatricNox/website-terminal.git
+   ```
+2. Navigate to the project directory:
+    ```bash
+    cd website-terminal
+   ```
+3. Run the following command to start the website:
+   ```bash
+    docker-compose up -d
+   ```
+    The website will be accessible at http://localhost.
+4. To stop and remove the containers, use:
+   ```bash
+    docker-compose down --remove-orphans
+    ```
+## Usage with dedicated server 
+You will need a web server (XAMPP for example) for this.
+
+ 1.   Download and extract the project files inside your web server's www/htdocs directory.
+
+ 2.   Run the website like a normal website!
 
 ## Why?
 Maybe you want to access a computer's shell from another location, having the terminal placed and password secured on the locations host. 
