@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+chmod 0777 /var/www/html/
+
+touch /var/www/html/logs.txt
+chown www-data:www-data /var/www/html/logs.txt
+chmod 0777 /var/www/html/logs.txt
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+        set -- php-fpm "$@"
+fi
+
+exec "$@"

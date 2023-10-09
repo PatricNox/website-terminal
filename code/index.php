@@ -25,5 +25,5 @@
     }
 
     ## Generate markup & style
-    $output = file_get_contents(__DIR__.'\logs.txt');
+    $output = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'logs.txt');
     include(__DIR__.'/layout/markup.php');
