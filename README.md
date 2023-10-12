@@ -6,7 +6,8 @@ A Command line interface, inside a website!
 </p>
 
 ## Compability
-This Web-built CMD has the compability for any command line interface like software.
+This Web app based Command Line utility (CMD) has the compability for any CLI software.
+Following are supported by this project:
 
 * Git
 * npm
@@ -38,13 +39,13 @@ The modern way is using [Docker](https://docs.docker.com/engine/install/). You'l
     docker-compose down --remove-orphans
     ```
 ## Usage with dedicated server 
-You will need a web server (XAMPP for example) for this.
+You will need a web server (XAMPP for example) for this:
 
  1.   Download and extract the project files inside your web server's www/htdocs directory.
 
  2.   Run the website like a normal website!
 
-## Why?
+## Why you should use this project:
 Maybe you want to access a computer's shell from another location, having the terminal placed and password secured on the locations host. 
 
 ## DISCLAIMER
